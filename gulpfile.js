@@ -1,58 +1,64 @@
 /* init gulp plugins */ 
-var gulp = require('gulp'),
-    jshint = require('gulp-jshint'),
-    stylish = require('jshint-stylish'),
-    uglify = require('gulp-uglify'),
-    gutil = require('gulp-util'),
-    sass = require('gulp-ruby-sass'),       
-    concat = require('gulp-concat'),
-    plumber = require('gulp-plumber'),
-    prefix = require('gulp-autoprefixer'),   
-    imagemin = require('gulp-imagemin'),
-    pngcrush = require('imagemin-pngcrush'),
-    notify = require('gulp-notify'),
-    browserSync = require('browser-sync'),
-    reload      = browserSync.reload;   
+var     gulp        =   require('gulp'),
+        gutil       =   require('gulp-util'),
+        imageop     =   require('gulp-image-optimization'),
+        gulpif      =   require('gulp-if');
 
-/* set variables */ 
-var env,
-    jsSources,
-    htmlSources,
-    sassSources,
-    outputDir;
+var     devStatus   =   true;
 
-/* state of developing */ 
-env = process.env.NODE_ENV || 'development';
- 
-if (env === 'development'){
-/*  outputDir = 'html/';                        REMOVE*/
-  sassStyle = 'expanded';
-} else {
-/*  outputDir = 'builds/production/';           REMOVE*/ 
-  sassStyle = 'compressed';
-}
+// load plugins
+var     $           =   require('gulp-load-plugins')(),
 
-jsSources   =   ['assets/js/**/*.js'];
-sassSources =   ['assets/sass/**/*.scss'];
-imgSources  =   ['assets/img/**/*.*'];
-/*
-htmlSources = [outputDir + '*.html'];
-                                                REMOVE*/
+        sorc        =   'assets',
+        sorcSass    =   [sorc + '/sass/*.scss'],
+        sorcImg     =   'assets/img/**/*.{gif,jpg,png,svg}',
+    
+        destImg     =    'img',
+        destSass    =    'css';
 
-gulp.task('images', function () {
-    return gulp.src('assets/img/**/*.*')
-    .pipe(newer(outputDir + 'img'))
-    .pipe(imagemin({
-        optimizationLevel: 7,
-        interlaced: true,
-        progressive: true,
-        svgoPlugins: [{removeViewBox: false}],
-        use:[pngcrush()]
-      }))
-      .pipe(gulp.dest(outputDir + 'img'))
-/*      .pipe(gulpif(env === 'production', gulp.dest(outputDir + 'img'))) */
-      .pipe(plumber())
-      .pipe( notify({ message: "Images tasks have been completed!"}) );
+if  (devStatus === true) {
+        sassStyle   =   'compact',
+        imgOptLev   =   1
+    }
+else {
+        sassStyle   =   'compressed',
+        imgOptLev   =   5 
+    };
+
+gulp.task('style', function() { 
+    return gulp.src(sorcSass)
+        .pipe($.sass({
+            errLogToConsole: true,
+            outputStyle: sassStyle  
+        }))
+        .pipe($.autoprefixer('last 2 version', '> 5%', 'ie 8', {map: false}))
+        .pipe(gulp.dest(destSass))
+        .pipe($.size());
 });
 
 
+gulp.task('images', function(cb) {
+    gulp.src(sorcImg)
+    .pipe($.cache(
+        imageop({
+            optimizationLevel: imgOptLev,
+            progressive: true,
+            interlaced: true
+        })
+    ))
+    .pipe(gulp.dest(destImg))
+    .on('end', cb)
+    .on('error', cb)
+    .pipe($.size())
+});
+
+
+gulp.task('watch', function () {
+    gulp.watch(sorcSass, ['style']);
+    gulp.watch(sorcImg, ['images']);
+});
+
+gulp.task('build', function () {
+    gulp.start('style');
+    gulp.start('images');
+});
