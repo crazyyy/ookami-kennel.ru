@@ -16,6 +16,7 @@
 	<link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
 
 	<!-- css + javascript -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<?php wp_head(); ?>
 	<script>
 	!function(){
@@ -37,12 +38,12 @@
 				<?php if ( is_front_page() && is_home() ){ } else { ?>
 				<a href="<?php echo home_url(); ?>">
 				<?php  } ?>
-				<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">	
-				<?php if ( is_front_page() && is_home() ){ 
+				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
+				<?php if ( is_front_page() && is_home() ){
 				} else { ?>
 				</a>
 				<?php } ?>
+        <h1>Питомник Акита ину и Сиба ину</h1>
 			</div>
 			<!-- /logo -->
 
@@ -51,6 +52,11 @@
 				<?php wpeHeadNav(); ?>
 			</nav>
 			<!-- /nav -->
+
+      <ul class="small-nav clearfix">
+        <li class="button-1"><a href="">Новости</a></li>
+        <li class="button-2"><a href="">Контакты</a></li>
+      </ul>
 
 		</header>
 		<!-- /header -->

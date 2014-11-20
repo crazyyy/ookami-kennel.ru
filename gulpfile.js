@@ -1,4 +1,4 @@
-/* init gulp plugins */ 
+/* init gulp plugins */
 var     gulp        =   require('gulp'),
         gutil       =   require('gulp-util'),
         imageop     =   require('gulp-image-optimization'),
@@ -12,7 +12,7 @@ var     $           =   require('gulp-load-plugins')(),
         sorc        =   'assets',
         sorcSass    =   [sorc + '/sass/*.scss'],
         sorcImg     =   'assets/img/**/*.{gif,jpg,png,svg}',
-    
+
         destImg     =    'img',
         destSass    =    'css';
 
@@ -22,14 +22,14 @@ if  (devStatus === true) {
     }
 else {
         sassStyle   =   'compressed',
-        imgOptLev   =   5 
+        imgOptLev   =   5
     };
 
-gulp.task('style', function() { 
+gulp.task('style', function() {
     return gulp.src(sorcSass)
         .pipe($.sass({
             errLogToConsole: true,
-            outputStyle: sassStyle  
+            outputStyle: sassStyle
         }))
         .pipe($.autoprefixer('last 2 version', '> 5%', 'ie 8', {map: false}))
         .pipe(gulp.dest(destSass))
@@ -54,7 +54,7 @@ gulp.task('images', function(cb) {
 
 
 gulp.task('watch', function () {
-    gulp.watch(sorcSass, ['style']);
+    gulp.watch(sorcSass, ['style']),
     gulp.watch(sorcImg, ['images']);
 });
 
