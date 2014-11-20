@@ -25,5 +25,6 @@
 		</script>
     <div class="back-header-top"></div>
     <div class="back-header"></div>
+    <div class="back-footer"></div>
 	</body>
 </html>

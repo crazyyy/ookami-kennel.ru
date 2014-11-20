@@ -417,6 +417,9 @@ fieldset {
   margin: 0;
   padding: 0; }
 
+html {
+  height: 100%; }
+
 body {
   font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 14px;
@@ -424,7 +427,9 @@ body {
   font-weight: 300;
   background-image: url(../img/bg/body.jpg);
   background-repeat: repeat;
-  position: relative; }
+  position: relative;
+  height: 100%;
+  min-height: 100%; }
 
 .back-header-top {
   position: absolute;
@@ -470,7 +475,11 @@ img {
 .wrapper {
   width: 980px;
   margin: 0 auto;
+  min-height: 100%;
   position: relative; }
+
+* html .wrapper {
+  height: 100%; }
 
 header {
   height: 424px; }
@@ -548,6 +557,21 @@ header {
       header .small-nav .button-2:hover {
         background-image: -webkit-linear-gradient(bottom, rgba(133, 133, 133, 0.61) 0%, rgba(85, 85, 85, 0.61) 100%);
         background-image: linear-gradient(to top, rgba(133, 133, 133, 0.61) 0%, rgba(85, 85, 85, 0.61) 100%); }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 110px;
+  color: #999; }
+
+.back-footer {
+  position: absolute;
+  bottom: 0;
+  height: 110px;
+  width: 100%;
+  background-color: #402B26;
+  box-shadow: inset 0 12px 15px -8px rgba(0, 0, 0, 0.2);
+  z-index: -5; }
 
 ::selection, ::-webkit-selection, ::-moz-selection {
   background: #04a4cc;
