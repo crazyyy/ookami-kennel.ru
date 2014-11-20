@@ -492,7 +492,8 @@ header {
       text-align: center; }
     header nav li {
       display: inline-block;
-      margin: 0 4px; }
+      margin: 0 4px;
+      position: relative; }
     header nav a {
       color: #fc0;
       outline-color: #ffcc00;
@@ -504,6 +505,15 @@ header {
               transition: all 1s; }
       header nav a:hover {
         color: #997800; }
+    header nav .nav_desc {
+      display: block;
+      width: 100%;
+      color: #fff;
+      position: absolute;
+      left: 0;
+      top: 20px;
+      text-align: center;
+      font-size: 13px; }
   header .small-nav {
     width: 200px;
     height: 44px;
