@@ -203,7 +203,7 @@ sub {
  * Addresses margins set differently in IE 6/7.
  */
 dl, menu, ol, ul {
-  margin: 1em 0; }
+  margin: 0; }
 
 dd {
   margin: 0 0 0 40px; }
@@ -212,7 +212,7 @@ dd {
  * Addresses paddings set differently in IE 6/7.
  */
 menu, ol, ul {
-  padding: 0 0 0 40px; }
+  padding: 0; }
 
 /*
  * Corrects list images handled incorrectly in IE 7.
@@ -476,7 +476,7 @@ header {
   height: 424px; }
   header .logo {
     text-align: center;
-    width: 300px;
+    width: 200px;
     display: inline-block;
     float: left; }
     header .logo h1 {
@@ -485,13 +485,28 @@ header {
       font-weight: normal; }
   header nav {
     display: inline-block;
-    width: 480px;
+    width: 580px;
     float: left; }
+    header nav ul {
+      padding: 15px 0 0;
+      text-align: center; }
     header nav li {
-      display: inline-block; }
+      display: inline-block;
+      margin: 0 4px; }
+    header nav a {
+      color: #fc0;
+      outline-color: #ffcc00;
+      font-family: Arial;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 15px;
+      -webkit-transition: all 1s;
+              transition: all 1s; }
+      header nav a:hover {
+        color: #997800; }
   header .small-nav {
     width: 200px;
-    height: 64px;
+    height: 44px;
     padding: 20px 0 0;
     display: inline-block;
     float: right;
@@ -502,11 +517,27 @@ header {
       height: 25px;
       text-align: center; }
     header .small-nav a {
-      word-wrap: break-word;
+      display: block;
       width: 100%;
       height: 100%;
       color: #fff;
-      text-decoration: none; }
+      text-decoration: none;
+      line-height: 1.7;
+      border-radius: 3px;
+      -webkit-transition: all 1s;
+              transition: all 1s; }
+    header .small-nav .button-1 {
+      background-image: -webkit-linear-gradient(bottom, #d75103 0%, #ef691b 100%);
+      background-image: linear-gradient(to top, #d75103 0%, #ef691b 100%); }
+      header .small-nav .button-1:hover {
+        background-image: -webkit-linear-gradient(bottom, #ef691b 0%, #d75103 100%);
+        background-image: linear-gradient(to top, #ef691b 0%, #d75103 100%); }
+    header .small-nav .button-2 {
+      background-image: -webkit-linear-gradient(bottom, rgba(85, 85, 85, 0.61) 0%, rgba(133, 133, 133, 0.61) 100%);
+      background-image: linear-gradient(to top, rgba(85, 85, 85, 0.61) 0%, rgba(133, 133, 133, 0.61) 100%); }
+      header .small-nav .button-2:hover {
+        background-image: -webkit-linear-gradient(bottom, rgba(133, 133, 133, 0.61) 0%, rgba(85, 85, 85, 0.61) 100%);
+        background-image: linear-gradient(to top, rgba(133, 133, 133, 0.61) 0%, rgba(85, 85, 85, 0.61) 100%); }
 
 ::selection, ::-webkit-selection, ::-moz-selection {
   background: #04a4cc;
