@@ -482,7 +482,8 @@ img {
   height: 100%; }
 
 header {
-  height: 424px; }
+  height: 424px;
+  margin: 0 0 20px; }
   header .logo {
     text-align: center;
     width: 200px;
@@ -494,7 +495,7 @@ header {
       font-weight: normal; }
   header nav {
     display: inline-block;
-    width: 580px;
+    width: 600px;
     float: left; }
     header nav ul {
       padding: 15px 0 0;
@@ -509,7 +510,7 @@ header {
       font-family: Arial;
       text-decoration: none;
       text-transform: uppercase;
-      font-size: 15px;
+      font-size: 14px;
       -webkit-transition: all 1s;
               transition: all 1s; }
       header nav a:hover {
@@ -524,7 +525,7 @@ header {
       text-align: center;
       font-size: 13px; }
   header .small-nav {
-    width: 200px;
+    width: 180px;
     height: 44px;
     padding: 20px 0 0;
     display: inline-block;
@@ -532,7 +533,7 @@ header {
     text-align: center; }
     header .small-nav li {
       display: inline-block;
-      width: 80px;
+      width: 70px;
       height: 25px;
       text-align: center; }
     header .small-nav a {
@@ -558,11 +559,47 @@ header {
         background-image: -webkit-linear-gradient(bottom, rgba(133, 133, 133, 0.61) 0%, rgba(85, 85, 85, 0.61) 100%);
         background-image: linear-gradient(to top, rgba(133, 133, 133, 0.61) 0%, rgba(85, 85, 85, 0.61) 100%); }
 
+aside {
+  width: 220px;
+  float: left;
+  padding: 0 10px; }
+
+section {
+  width: 700px;
+  float: right;
+  padding: 0 20px; }
+
 footer {
   position: absolute;
   bottom: 0;
   height: 110px;
-  color: #999; }
+  color: #999;
+  width: 100%; }
+  footer p {
+    margin: 0 0 5px;
+    color: #f6f6f6; }
+    footer p a {
+      color: #fc0; }
+
+.footernav {
+  width: 100%;
+  padding: 15px 0;
+  display: table; }
+  .footernav li {
+    display: table-cell;
+    text-align: center; }
+    .footernav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: Arial; }
+      .footernav li a:hover {
+        color: #fc0;
+        outline-color: #ffcc00; }
+  .footernav .current-menu-item a {
+    color: #fc0;
+    outline-color: #ffcc00;
+    font-family: Arial; }
 
 .back-footer {
   position: absolute;

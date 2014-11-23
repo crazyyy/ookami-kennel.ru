@@ -2,6 +2,7 @@
 var     gulp        =   require('gulp'),
         gutil       =   require('gulp-util'),
         imageop     =   require('gulp-image-optimization'),
+        livereload  =   require('gulp-livereload'),
         gulpif      =   require('gulp-if');
 
 var     devStatus   =   true;
@@ -52,10 +53,11 @@ gulp.task('images', function(cb) {
     .pipe($.size())
 });
 
-
 gulp.task('watch', function () {
     gulp.watch(sorcSass, ['style']),
     gulp.watch(sorcImg, ['images']);
+    livereload.listen();
+    gulp.watch('destSass/*.css').on('change', livereload.changed);
 });
 
 gulp.task('build', function () {
