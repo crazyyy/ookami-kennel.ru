@@ -217,11 +217,11 @@ section {
 
 
 footer {
-  position: absolute;
-  bottom: 0;
   height: 110px;
   color: #999;
   width: 100%;
+  width: 980px;
+  margin: 0 auto;
   p {
     margin: 0 0 5px;
     color: #f6f6f6;
@@ -260,8 +260,6 @@ footer {
 }
 
 .back-footer {
-  position: absolute;
-  bottom: 0;
   height: 110px;
   width: 100%;
   background-color: #402B26;
